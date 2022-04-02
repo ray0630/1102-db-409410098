@@ -15,8 +15,8 @@ const Category_98 = class Category_98{
     static async fetchAll(){
         try{
             let result = await db.query('SELECT * from category_98')
-            console.log('results',result.rows)
-            return result;
+            //console.log('fetchAll results',JSON.stringify(results.rows))
+            return result.rows;
         } catch(err){
             console.log('error',err)
         }
@@ -24,11 +24,11 @@ const Category_98 = class Category_98{
 }
 
 // testing
-const test = async() => {
-    let result = await Category_98.fetchAll();
-    console.log('results',JSON.stringify(result.rows));
-}
-
-test();
+// const test = async() => {
+//     let results = await Category_98.fetchAll();
+//     console.log('test results',JSON.stringify(results));
+// }
+//
+//test();
 
 module.exports = Category_98;
