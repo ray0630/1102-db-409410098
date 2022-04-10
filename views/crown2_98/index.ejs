@@ -44,7 +44,7 @@
     <div> <h2> <%= title %>   <%= id %> </h2>
     </div>
     <div class="directory-menu">
-      <div class="menu-item">
+      <!-- <div class="menu-item">
           <img class="background-image" src="https://i.ibb.co/cvpntL1/hats.png" alt="">
         <a href="./hats.html" class="content">
             <h1 class="title">HATS</h1>
@@ -78,8 +78,8 @@
           <h1 class="title">MENS</h1>
           <span class="subtitle">SHOP NOW</span>           
         </a>
-      </div>
-      <!-- <%= for(let i=0; i<data.lenght; i++){ %>
+      </div> -->
+      <%= for(let i=0; i<data.lenght; i++){ %>
         <div class="<%= data[i].size %> menu-item">
           <img class="background-image" src="<%= data[i].remote_url %>" alt="">
           <a href="./mens.html" class="content">
@@ -87,7 +87,7 @@
             <span class="subtitle">SHOP NOW</span>           
           </a>
         </div>
-      <%= } %> -->
+      <%= } %>
 
     </div>
   </div>

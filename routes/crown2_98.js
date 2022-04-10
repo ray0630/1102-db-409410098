@@ -13,9 +13,9 @@ router.get('/', async function(req, res, next) {
   }
 
   res.render('crown2_98/index', { 
-    //data: results,
+    data: results,  
     id: '409410098', 
-    title: 'crown2' 
+    title: 'crown2'
   });
 });
 
