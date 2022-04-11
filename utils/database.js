@@ -14,7 +14,7 @@ else{
         host: 'localhost',
         port: '5432',
         database: 'crown_98',
-        password: '0000',
+        password: 'R630'
     })
 }
 
