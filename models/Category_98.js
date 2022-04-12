@@ -22,6 +22,16 @@ const Category_98 = class Category_98{
             console.log('error',err)
         }
     }
+
+    static async fetchCatidByName(name){
+        try{
+            let results = await db.query('SELECT * from Category_98 where name = $1',[name]);
+            //console.log('fetchAll results',JSON.stringify( results.rows));
+            return results.rows[0].id;
+        } catch(err){
+            console.log(err);
+        }
+    }
 }
 
 // testing
