@@ -11,8 +11,19 @@ const Shop_98 = class Shop_98{
         this.local_url = local_url;
     }
 
-    //get all products
+    // CREATE
 
+    static async create(body){
+        const {id, name, cat_id, price, remote_url, local_url} = body;
+        const queryStr = {
+            text: `INSERT INTO shop_98 (id, name, cat_id, price, remote_url, local_url) VALUES ($1,$2,$3,$4,$5,$6)`,
+            values: [id, name, cat_id, price, remote_url, local_url]
+        };
+        return db.query(queryStr);
+    }
+
+    // READ
+    //get all products
     static async fetchAll(){
         try{
             let results = await db.query(`SELECT * from Shop_98`);
@@ -34,6 +45,15 @@ const Shop_98 = class Shop_98{
         }catch(err){
             console.log(err);
         }
+    }
+
+    // DELETE
+    static async deleteById(id){
+        const query = {
+            text: `DELETE FROM shop_98 WHERE id = $1`,
+            values: [id]
+        };
+        return db.query(query);
     }
 }
 
