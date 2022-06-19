@@ -14,12 +14,13 @@ const Shop_98 = class Shop_98{
     // CREATE
 
     static async create(body){
+        // console.log('create body',body);
         const {id, name, cat_id, price, remote_url, local_url} = body;
-        const queryStr = {
+        const query = {
             text: `INSERT INTO shop_98 (id, name, cat_id, price, remote_url, local_url) VALUES ($1,$2,$3,$4,$5,$6)`,
             values: [id, name, cat_id, price, remote_url, local_url]
         };
-        return db.query(queryStr);
+        return db.query(query);
     }
 
     // READ
@@ -45,6 +46,18 @@ const Shop_98 = class Shop_98{
         }catch(err){
             console.log(err);
         }
+    }
+
+    // UPDATE
+    static async update(body){
+        // console.log('update body',body);
+        const {id, name, cat_id, price, remote_url, local_url} = body;
+        const query = {
+            text: `UPDATE shop_98 SET name = $1, cat_id = $2, price = $3,
+            remote_url = $4, local_url = $5 WHERE id = $6`,
+            values: [name, cat_id, price, remote_url, local_url, id]
+        };
+        return db.query(query);
     }
 
     // DELETE
