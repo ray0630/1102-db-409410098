@@ -1,3 +1,4 @@
+const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 
@@ -7,7 +8,7 @@ const db = require('../utils/database');
 router.get('/', async (req, res, next) => {
     try{
         const results = await db.query('SELECT * FROM book_98');
-        console.log('results',results);
+        console.log('results',JSON.stringify(results.rows));
         res.render('book_98/index', { 
             data: results.rows,
             id: '409410098',
