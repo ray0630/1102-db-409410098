@@ -6,7 +6,7 @@ const db = require('../utils/database');
 
 // CREAT
 router.post('/create', async (req, res) => {
-    console.log('body',req.body);
+    // console.log('body',req.body);
     const id = req.body.id;
     const name = req.body.name;
     const author = req.body.author;
@@ -29,7 +29,7 @@ router.post('/create', async (req, res) => {
 router.get('/', async (req, res, next) => {
     try{
         const results = await db.query('SELECT * FROM book_98');
-        console.log('results',JSON.stringify(results.rows));
+        // console.log('results',JSON.stringify(results.rows));
         res.render('book_98/index', { 
             data: results.rows,
             id: '409410098',
@@ -48,8 +48,18 @@ router.get('/create', async (req, res) => {
 });
 
 // DELETE
-router.get('/delete', async (req, res) => {
-
+router.get('/delete/:id', async (req, res) => {
+    try{
+        console.log('delete id',req.params.id);
+        const query = {
+            text: `DELETE FROM book_98 WHERE id = $1`,
+            values: [req.params.id]
+        }
+        await db.query(query);
+        res.redirect('/book_98');
+    }catch(err){
+        console.log(error);
+    }
 });
 
 module.exports = router;
